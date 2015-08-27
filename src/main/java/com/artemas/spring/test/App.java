@@ -16,14 +16,27 @@ public class App {
 		ApplicationContext context = null;
 		context = new ClassPathXmlApplicationContext("com/artemas/spring/test/beans/beans.xml");
 		
-		Person person = (Person)context.getBean("person");
-		person.speak();
+		Person person1 = (Person)context.getBean("person");
+		Person person2 = (Person)context.getBean("person");
+		
+		
+		person1.setTaxId(111);
 		
 		//to get the Address bean...
-		Address address = (Address)context.getBean("address");
+		//Address address = (Address)context.getBean("address");
 		
-		System.out.println(person);
-		System.out.println(address);
+		/**
+		 * By default a bean's scope = singleton
+		 * 
+		 * If scope is set to prototype, the Spring IoC container creates
+		 * new bean instance of the object every time a 
+		 * request for that specific bean is made.
+		 * 
+		 * IoC - By Implementing IoC, Software/Projects
+		 * consumer get more options/control over the software/objects 
+		 * instead of being controlled or having less options.
+		 */
+		System.out.println(person2);
 		
 		//close application context...
 		((ClassPathXmlApplicationContext)context).close();

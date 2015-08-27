@@ -5,7 +5,8 @@
 
 
 
-	<bean id="person" class="com.artemas.spring.test.Person">
+	<bean id="person" class="com.artemas.spring.test.Person"
+		scope="singleton">
 		<constructor-arg value="777" name="id"></constructor-arg>
 		<constructor-arg value="Artie" name="name"></constructor-arg>
 		<property name="taxId" value="123"></property>
