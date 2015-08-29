@@ -21,6 +21,17 @@ public class Person {
 	} 
 	
 	/**
+	 * Factory Method to return an instance of Person.
+	 * @param id
+	 * @param name
+	 * @return
+	 */
+	public static Person getInstance(int id, String name){
+		System.out.println("Creating Person using factory method");
+		return new Person(id, name);
+	}
+	
+	/**
 	 * @param id
 	 * @param name
 	 */

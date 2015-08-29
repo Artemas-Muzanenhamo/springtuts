@@ -16,11 +16,10 @@ public class App {
 		ApplicationContext context = null;
 		context = new ClassPathXmlApplicationContext("com/artemas/spring/test/beans/beans.xml");
 		
-		Person person1 = (Person)context.getBean("person");
-		Person person2 = (Person)context.getBean("person");
+		Person person = (Person)context.getBean("person");
 		
 		
-		person1.setTaxId(111);
+		person.setTaxId(111);
 		
 		//to get the Address bean...
 		//Address address = (Address)context.getBean("address");
@@ -36,7 +35,7 @@ public class App {
 		 * consumer get more options/control over the software/objects 
 		 * instead of being controlled or having less options.
 		 */
-		System.out.println(person2);
+		System.out.println(person);
 		
 		//close application context...
 		((ClassPathXmlApplicationContext)context).close();
