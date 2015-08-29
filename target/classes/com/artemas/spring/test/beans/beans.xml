@@ -6,27 +6,32 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	
-	<bean class="com.artemas.spring.test.Animal">
+	<bean id="elephant" class="com.artemas.spring.test.Animal">
 		<property name="name" value="Richard"></property>
 		<property name="type" value="elephant"></property>
 	</bean>
-	<bean class="com.artemas.spring.test.Animal">
+	<bean id="lion" class="com.artemas.spring.test.Animal">
 		<property name="name" value="Simba"></property>
 		<property name="type" value="lion"></property>
 	</bean>
-	<bean class="com.artemas.spring.test.Animal">
+	<bean id="monkey" class="com.artemas.spring.test.Animal">
 		<property name="name" value="Bob"></property>
 		<property name="type" value="monkey"></property>
 	</bean>
 
 	<bean id="jungle" class="com.artemas.spring.test.Jungle">
-
+	
 		<property name="foods">
 			<props>
 				<prop key="gorilla">banana</prop>
 				<prop key="panda">bamboo</prop>
 				<prop key="monkey">banana</prop>
 			</props>
+		</property>
+		<property name="animals">
+			<map>
+				<entry key="lion" value-ref="lion"></entry>
+			</map>
 		</property>
 	</bean>
 </beans>
