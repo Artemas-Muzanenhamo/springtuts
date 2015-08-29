@@ -27,7 +27,7 @@ public class Person {
 	 * @return
 	 */
 	public static Person getInstance(int id, String name){
-		System.out.println("Creating Person using factory method");
+		//System.out.println("Creating Person using factory method");
 		return new Person(id, name);
 	}
 	

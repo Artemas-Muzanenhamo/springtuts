@@ -7,23 +7,18 @@
 
 
 
-	<bean id="person" class="com.artemas.spring.test.Person" scope="singleton"
-		init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
-		<constructor-arg value="777" name="id"></constructor-arg>
-		<constructor-arg value="Artie" name="name"></constructor-arg>
-		<property name="taxId" value="123"></property>
-		<property name="address" ref="address"></property>
-	</bean>
 
-	<bean id="address" class="com.artemas.spring.test.Address">
-		<constructor-arg name="street" value="26 Comfrey close"></constructor-arg>
-		<constructor-arg name="postCode" value="gu14 9xx"></constructor-arg>
-	</bean>
-
-	<bean id="address2" class="com.artemas.spring.test.Address" p:street="5 radstone court" p:postCode="6789">
-	    
-	</bean>
-
-	<bean id="personFactory" class="com.artemas.spring.test.PersonFactory">
+	<bean id="basket" class="com.artemas.spring.test.FruitBasket">
+		<constructor-arg value="artemas's fruit basket"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>oranges</value>
+				<value>apples</value>
+				<value>tangarine</value>
+				<value>kiwi</value>
+				<value>pear</value>
+				<value>oranges</value>
+			</list>
+		</constructor-arg>
 	</bean>
 </beans>

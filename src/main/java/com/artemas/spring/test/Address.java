@@ -43,11 +43,11 @@ public class Address {
 	 * and destroy methods.
 	 */
 	public void init(){
-		System.out.println("Bean Created: " +this);
+		//System.out.println("Bean Created: " +this);
 	}
 	
 	public void destroy(){
-		System.out.println("Bean Destroyed");
+		//System.out.println("Bean Destroyed");
 	}
 
 }
