@@ -8,14 +8,14 @@
 
 	<bean id="jungle" class="com.artemas.spring.test.Jungle">
 
-	<property name="largest" ref="elephant"></property>
-	<property name="animals">
-		<list>
-			<ref bean="lion" />
-			<ref bean="elephant" />
-			<ref bean="monkey" />
-		</list>
-	</property>
+		<property name="largest" ref="elephant"></property>
+		<property name="animals">
+			<list>
+				<ref bean="lion" />
+				<ref bean="elephant" />
+				<ref bean="monkey" />
+			</list>
+		</property>
 	</bean>
 
 	<bean id="lion" class="com.artemas.spring.test.Animal">
