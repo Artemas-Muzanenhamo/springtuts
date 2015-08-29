@@ -15,6 +15,18 @@ public class Address {
 		return "Address [street=" + street + ", postCode=" + postCode + "]";
 	}
 	
+	/**
+	 * These are declared as the Bean init and destroy method. 
+	 * However, if these methods are set in the beans.xml,
+	 * they will be run first before the bean properties' init
+	 * and destroy methods.
+	 */
+	public void init(){
+		System.out.println("Bean Created: " +this);
+	}
 	
+	public void destroy(){
+		System.out.println("Bean Destroyed");
+	}
 
 }

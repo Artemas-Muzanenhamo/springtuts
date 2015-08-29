@@ -29,6 +29,19 @@ public class Person {
 		this.name = name;
 	}
 	
+	/**
+	 * These are the Person bean init and destroy methods. 
+	 * They can be overridden by the Parent Bean's init 
+	 * and destroy method if they are set.
+	 */
+	public void onCreate(){
+		System.out.println("Person created: " + this);
+	}
+	
+	public void onDestroy(){
+		System.out.println("Person Destroyed");
+	}
+	
 	public void speak(){
 		System.out.println("Hello I can speak !!");
 	}
