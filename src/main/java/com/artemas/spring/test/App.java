@@ -10,8 +10,9 @@ public class App {
 		ApplicationContext context = null;
 		context = new ClassPathXmlApplicationContext("com/artemas/spring/test/beans/beans.xml");
 		
-		FruitBasket fruit = (FruitBasket)context.getBean("basket");
-		System.out.println(fruit);
+		//Get the object bean...
+		Jungle jungle = (Jungle)context.getBean("jungle");
+		System.out.println(jungle);
 		
 		//close application context...
 		((ClassPathXmlApplicationContext)context).close();

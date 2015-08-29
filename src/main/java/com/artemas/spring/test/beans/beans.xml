@@ -6,19 +6,28 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
+	<bean id="jungle" class="com.artemas.spring.test.Jungle">
 
+	<property name="largest" ref="elephant"></property>
+	<property name="animals">
+		<list>
+			<ref bean="lion" />
+			<ref bean="elephant" />
+			<ref bean="monkey" />
+		</list>
+	</property>
+	</bean>
 
-	<bean id="basket" class="com.artemas.spring.test.FruitBasket">
-		<constructor-arg value="artemas's fruit basket"></constructor-arg>
-		<constructor-arg>
-			<list>
-				<value>oranges</value>
-				<value>apples</value>
-				<value>tangarine</value>
-				<value>kiwi</value>
-				<value>pear</value>
-				<value>oranges</value>
-			</list>
-		</constructor-arg>
+	<bean id="lion" class="com.artemas.spring.test.Animal">
+		<property name="name" value="Simba"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+	<bean id="elephant" class="com.artemas.spring.test.Animal">
+		<property name="name" value="Richard"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+	<bean id="monkey" class="com.artemas.spring.test.Animal">
+		<property name="name" value="Bob"></property>
+		<property name="type" value="monkey"></property>
 	</bean>
 </beans>
