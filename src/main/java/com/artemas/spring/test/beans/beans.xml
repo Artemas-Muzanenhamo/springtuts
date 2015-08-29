@@ -8,26 +8,23 @@
 
 	<bean id="jungle" class="com.artemas.spring.test.Jungle">
 
-		<property name="largest" ref="elephant"></property>
+		<property name="largest">
+			<bean class="com.artemas.spring.test.Animal">
+				<property name="name" value="Richard"></property>
+				<property name="type" value="elephant"></property>
+			</bean>
+		</property>
 		<property name="animals">
 			<list>
-				<ref bean="lion" />
-				<ref bean="elephant" />
-				<ref bean="monkey" />
+				<bean class="com.artemas.spring.test.Animal">
+					<property name="name" value="Simba"></property>
+					<property name="type" value="lion"></property>
+				</bean>
+				<bean class="com.artemas.spring.test.Animal">
+					<property name="name" value="Bob"></property>
+					<property name="type" value="monkey"></property>
+				</bean>
 			</list>
 		</property>
-	</bean>
-
-	<bean id="lion" class="com.artemas.spring.test.Animal">
-		<property name="name" value="Simba"></property>
-		<property name="type" value="lion"></property>
-	</bean>
-	<bean id="elephant" class="com.artemas.spring.test.Animal">
-		<property name="name" value="Richard"></property>
-		<property name="type" value="elephant"></property>
-	</bean>
-	<bean id="monkey" class="com.artemas.spring.test.Animal">
-		<property name="name" value="Bob"></property>
-		<property name="type" value="monkey"></property>
 	</bean>
 </beans>
