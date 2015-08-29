@@ -46,15 +46,15 @@ public class Person {
 	 * and destroy method if they are set.
 	 */
 	public void onCreate(){
-		System.out.println("Person created: " + this);
+		//System.out.println("Person created: " + this);
 	}
 	
 	public void onDestroy(){
-		System.out.println("Person Destroyed");
+		//System.out.println("Person Destroyed");
 	}
 	
 	public void speak(){
-		System.out.println("Hello I can speak !!");
+		//System.out.println("Hello I can speak !!");
 	}
 	
 	//we could instantiate taxID via the constructor or do it this way...

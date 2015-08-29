@@ -1,36 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-init-method="init" default-destroy-method="destroy">
+	default-init-method="init" default-destroy-method="destroy"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
 
-	<bean id="person" class="com.artemas.spring.test.Person"
-		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
-		factory-method="getInstance">
+	<bean id="person" class="com.artemas.spring.test.Person" scope="singleton"
+		init-method="onCreate" destroy-method="onDestroy" factory-method="getInstance">
 		<constructor-arg value="777" name="id"></constructor-arg>
 		<constructor-arg value="Artie" name="name"></constructor-arg>
 		<property name="taxId" value="123"></property>
 		<property name="address" ref="address"></property>
 	</bean>
-	
-	<bean id="person2" class="com.artemas.spring.test.Person"
-		scope="singleton" init-method="onCreate" destroy-method="onDestroy"
-		factory-method="createPerson" factory-bean="personFactory">
-		<constructor-arg value="333" name="id"></constructor-arg>
-		<constructor-arg value="Keit" name="name"></constructor-arg>
-		<property name="taxId" value="123"></property>
-		<property name="address" ref="address"></property>
-	</bean>
-
-
 
 	<bean id="address" class="com.artemas.spring.test.Address">
 		<constructor-arg name="street" value="26 Comfrey close"></constructor-arg>
 		<constructor-arg name="postCode" value="gu14 9xx"></constructor-arg>
 	</bean>
-	<bean id="personFactory"
-		class="com.artemas.spring.test.PersonFactory">
+
+	<bean id="address2" class="com.artemas.spring.test.Address" p:street="5 radstone court" p:postCode="6789">
+	    
+	</bean>
+
+	<bean id="personFactory" class="com.artemas.spring.test.PersonFactory">
 	</bean>
 </beans>
