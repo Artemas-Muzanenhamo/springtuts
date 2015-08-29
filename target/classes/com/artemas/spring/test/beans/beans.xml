@@ -5,26 +5,28 @@
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	
+	<bean class="com.artemas.spring.test.Animal">
+		<property name="name" value="Richard"></property>
+		<property name="type" value="elephant"></property>
+	</bean>
+	<bean class="com.artemas.spring.test.Animal">
+		<property name="name" value="Simba"></property>
+		<property name="type" value="lion"></property>
+	</bean>
+	<bean class="com.artemas.spring.test.Animal">
+		<property name="name" value="Bob"></property>
+		<property name="type" value="monkey"></property>
+	</bean>
 
 	<bean id="jungle" class="com.artemas.spring.test.Jungle">
 
-		<property name="largest">
-			<bean class="com.artemas.spring.test.Animal">
-				<property name="name" value="Richard"></property>
-				<property name="type" value="elephant"></property>
-			</bean>
-		</property>
-		<property name="animals">
-			<list>
-				<bean class="com.artemas.spring.test.Animal">
-					<property name="name" value="Simba"></property>
-					<property name="type" value="lion"></property>
-				</bean>
-				<bean class="com.artemas.spring.test.Animal">
-					<property name="name" value="Bob"></property>
-					<property name="type" value="monkey"></property>
-				</bean>
-			</list>
+		<property name="foods">
+			<props>
+				<prop key="gorilla">banana</prop>
+				<prop key="panda">bamboo</prop>
+				<prop key="monkey">banana</prop>
+			</props>
 		</property>
 	</bean>
 </beans>

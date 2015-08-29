@@ -1,45 +1,29 @@
 package com.artemas.spring.test;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class Jungle {
 	
-	private Animal largest;
-	private List<Animal> animals;
+	//Instantiate Map foods as a HashMap Object.
+	private Map<String, String> foods = new HashMap<String, String>();
 	
-	//get largest animal.
-	public Animal getLargest(){
-		return largest;
+	public void setFoods(Map<String, String> foods){
+		this.foods = foods;
 	}
 	
-	public void setLargest(Animal largest){
-		this.largest = largest;
-	}
-	//get animals list
-	public List<Animal> getAnimals(){
-		return animals;
-	}
-	
-	public void setAnimals(List<Animal> animals){
-		this.animals = animals;
-	}
-	
+	@Override
 	public String toString(){
 		
 		StringBuilder sb = new StringBuilder();
-		
-		sb.append("Largest: " + largest);
-		sb.append("\n");
-		sb.append("Others:\n");
-		
-		for(Animal animal: animals){
-			sb.append(animal);
-			sb.append("\n");
+		//for each entry in foods, get the key and get the value...
+		for(Map.Entry<String, String> entry: foods.entrySet()){
+			sb.append(entry.getKey() + ": " + entry.getValue() + "\n");
 		}
 		
 		return sb.toString();
-		
 	}
-
+	
 }
