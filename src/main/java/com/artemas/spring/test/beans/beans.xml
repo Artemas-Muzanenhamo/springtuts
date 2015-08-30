@@ -8,7 +8,7 @@
 
 
 	<bean id="logger" class="com.artemas.spring.test.Logger"
-		autowire="byType">
+		autowire="byName">
 	</bean>
 
 	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
