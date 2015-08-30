@@ -4,8 +4,7 @@
 	default-init-method="init" default-destroy-method="destroy"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-autowire="byType"
-	default-autowire-candidates="*Writer">
+	default-autowire="byType">
 
 
 
@@ -13,7 +12,12 @@
 	    
 	</bean>
 
-	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
+	<bean id="consoleWriter"
+		class="com.artemas.spring.test.ConsoleWriter" primary="true">
+	
+	</bean>
+
+	<bean id="panda" class="com.artemas.spring.test.ConsoleWriter">
 	
 	</bean>
 
@@ -21,7 +25,8 @@
 	    
 	</bean>
 	
-	<bean id="squirrel" class="com.artemas.spring.test.FileWriter">
+	<bean id="squirrel" class="com.artemas.spring.test.FileWriter"
+		autowire-candidate="false">
 	    
 	</bean>
 </beans>
