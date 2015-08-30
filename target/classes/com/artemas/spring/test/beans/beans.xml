@@ -3,30 +3,23 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	default-init-method="init" default-destroy-method="destroy"
 	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-	default-autowire="byType">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 
 
 	<bean id="logger" class="com.artemas.spring.test.Logger">
-	    
+
 	</bean>
 
-	<bean id="consoleWriter"
-		class="com.artemas.spring.test.ConsoleWriter" primary="true">
-	
-	</bean>
+	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
 
-	<bean id="panda" class="com.artemas.spring.test.ConsoleWriter">
-	
 	</bean>
 
 	<bean id="fileWriter" class="com.artemas.spring.test.FileWriter">
-	    
+
 	</bean>
 	
-	<bean id="squirrel" class="com.artemas.spring.test.FileWriter"
-		autowire-candidate="false">
-	    
-	</bean>
+	<context:annotation-config></context:annotation-config>
 </beans>
