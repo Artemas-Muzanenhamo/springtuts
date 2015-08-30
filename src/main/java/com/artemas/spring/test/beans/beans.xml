@@ -13,10 +13,6 @@
 
 	</bean>
 
-	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
-
-	</bean>
-
 	<bean id="fileWriter" class="com.artemas.spring.test.FileWriter">
 
 	</bean>
