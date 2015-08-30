@@ -7,24 +7,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-
-
-	<bean id="logger" class="com.artemas.spring.test.Logger">
-
-	</bean>
-
-	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
-
-		<qualifier value="toConsole"></qualifier>
-	</bean>
-
-	<bean id="squirrel" class="com.artemas.spring.test.ConsoleWriter">
-
-	</bean>
-
-	<bean id="mongoose" class="com.artemas.spring.test.FileWriter">
-
-	</bean>
-	
 	<context:annotation-config></context:annotation-config>
+	<context:property-placeholder
+		location="com/artemas/spring/props/jdbc.properties" />
+		
+	<context:component-scan base-package="com.artemas.spring.test"></context:component-scan>
 </beans>

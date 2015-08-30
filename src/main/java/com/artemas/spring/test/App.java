@@ -10,10 +10,8 @@ public class App {
 		ApplicationContext context = null;
 		context = new ClassPathXmlApplicationContext("com/artemas/spring/test/beans/beans.xml");
 		
-		Logger logger = (Logger)context.getBean("logger");
-		
-		logger.writeConsole("Hello there");
-		logger.writeFile("Hi again");
+		Robot robot = (Robot)context.getBean("robot");
+		robot.speak();
 		
 		
 		//close application context...

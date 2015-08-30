@@ -8,14 +8,10 @@ public class Logger {
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 	
-	@Autowired
-	@Qualifier("toConsole")
 	public void setConsoleWriter(ConsoleWriter writer){
 		this.consoleWriter = writer;
 	}
 	
-	@Autowired
-	@Qualifier("fileWriter")
 	public void setFileWriter(LogWriter fileWriter){
 		this.fileWriter = fileWriter;
 	}
