@@ -1,17 +1,22 @@
 package com.artemas.spring.test;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ImportResource;
 
 public class Logger {
 	
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 	
+	@Resource
 	public void setConsoleWriter(ConsoleWriter writer){
 		this.consoleWriter = writer;
 	}
 	
+	@Resource(name="squirrel")
 	public void setFileWriter(LogWriter fileWriter){
 		this.fileWriter = fileWriter;
 	}

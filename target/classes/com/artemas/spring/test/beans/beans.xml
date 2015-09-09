@@ -2,14 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	default-init-method="init" default-destroy-method="destroy"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<context:annotation-config></context:annotation-config>
 	<context:property-placeholder
 		location="com/artemas/spring/props/jdbc.properties" />
-		
+
 	<context:component-scan base-package="com.artemas.spring.test"></context:component-scan>
+
+
+	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
+		<qualifier value="toConsole"></qualifier>
+	</bean>
+
+	<bean id="squirrel" class="com.artemas.spring.test.ConsoleWriter">
+	</bean>
+
+	<bean id="mongoose" class="com.artemas.spring.test.FileWriter">
+	</bean>
+
+
+	<bean id="logger" class="com.artemas.spring.test.Logger"></bean>
 </beans>
