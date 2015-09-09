@@ -11,18 +11,5 @@
 		location="com/artemas/spring/props/jdbc.properties" />
 
 	<context:component-scan base-package="com.artemas.spring.test"></context:component-scan>
-
-
-	<bean id="consoleWriter" class="com.artemas.spring.test.ConsoleWriter">
-		<qualifier value="toConsole"></qualifier>
-	</bean>
-
-	<bean id="squirrel" class="com.artemas.spring.test.ConsoleWriter">
-	</bean>
-
-	<bean id="mongoose" class="com.artemas.spring.test.FileWriter">
-	</bean>
-
-
-	<bean id="logger" class="com.artemas.spring.test.Logger"></bean>
+	
 </beans>

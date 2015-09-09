@@ -9,20 +9,21 @@ import javax.inject.Named;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Logger {
 	
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 	
 	@Inject
-	@Named(value="consoleWriter")
 	public void setConsoleWriter(ConsoleWriter writer){
 		this.consoleWriter = writer;
 	}
 	
 	@Inject
-	@Named(value="squirrel") //specify the bean id name as the inject ann. checks by type.
+	@Named(value="fileWriter")
 	public void setFileWriter(LogWriter fileWriter){
 		this.fileWriter = fileWriter;
 	}
