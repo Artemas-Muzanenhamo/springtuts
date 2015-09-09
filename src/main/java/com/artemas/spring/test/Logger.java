@@ -1,5 +1,7 @@
 package com.artemas.spring.test;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,16 @@ public class Logger {
 		if(consoleWriter != null){
 			consoleWriter.write(text);
 		}
+	}
+	
+	@PostConstruct //run at the beginning of the context.
+	public void init(){
+		System.out.println("init");
+	}
+	
+	@PreDestroy //Run before the closing of the context.
+	public void destory(){
+		System.out.println("destroy");
 	}
 
 }
