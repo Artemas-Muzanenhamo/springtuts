@@ -14,6 +14,7 @@ public class Robot {
 		System.out.println(id + ": " + speech);
 	}
 	
+	//This SPEL is referencing the properties is referencing the jdbc.properties file.
 	@Autowired
 	public void setId(@Value("${jdbc.user}") String id){
 		this.id = id;
