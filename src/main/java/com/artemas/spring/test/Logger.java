@@ -3,6 +3,8 @@ package com.artemas.spring.test;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -13,12 +15,14 @@ public class Logger {
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 	
-	@Resource
+	@Inject
+	@Named(value="consoleWriter")
 	public void setConsoleWriter(ConsoleWriter writer){
 		this.consoleWriter = writer;
 	}
 	
-	@Resource(name="squirrel")
+	@Inject
+	@Named(value="squirrel") //specify the bean id name as the inject ann. checks by type.
 	public void setFileWriter(LogWriter fileWriter){
 		this.fileWriter = fileWriter;
 	}
@@ -33,12 +37,12 @@ public class Logger {
 		}
 	}
 	
-	@PostConstruct //run at the beginning of the context.
+	@PostConstruct
 	public void init(){
 		System.out.println("init");
 	}
 	
-	@PreDestroy //Run before the closing of the context.
+	@PreDestroy
 	public void destory(){
 		System.out.println("destroy");
 	}
