@@ -11,19 +11,15 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
-@Component
 public class Logger {
 	
 	private ConsoleWriter consoleWriter;
 	private LogWriter fileWriter;
 	
-	@Inject
 	public void setConsoleWriter(ConsoleWriter writer){
 		this.consoleWriter = writer;
 	}
 	
-	@Inject
-	@Named(value="fileWriter")
 	public void setFileWriter(LogWriter fileWriter){
 		this.fileWriter = fileWriter;
 	}
