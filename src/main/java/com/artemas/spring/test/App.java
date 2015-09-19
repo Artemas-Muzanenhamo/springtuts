@@ -21,7 +21,12 @@ public class App {
 		
 		try {
 			
-			offersDao.delete(5);
+			Offer offer1 = new Offer("Artemas", "artemas@nowhereatall.com", "Coding in Java");
+			
+			//create a new row with the details passed in offer1
+			offersDao.create(offer1);
+			
+			//offersDao.delete(5);
 			
 			//get a list of type Offer
 			List<Offer> offers = offersDao.getOffers();

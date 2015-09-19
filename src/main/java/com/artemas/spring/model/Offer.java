@@ -7,6 +7,25 @@ public class Offer {
 	private String email;
 	private String text;
 	
+	//default constuctor.
+	public Offer(){
+		
+	}
+	
+	//constructor to take in the name, email and text since the db auto increments the id, we wont need it here.
+	public Offer(String name, String email, String text){
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+	
+	public Offer(int id, String name, String email, String text){
+		this.id = id;
+		this.name = name;
+		this.email = email;
+		this.text = text;
+	}
+	
 	public int getId() {
 		return id;
 	}
