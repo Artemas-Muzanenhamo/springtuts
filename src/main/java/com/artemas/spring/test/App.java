@@ -21,10 +21,13 @@ public class App {
 		
 		try {
 			
-			Offer offer1 = new Offer("Artemas", "artemas@nowhereatall.com", "Coding in Java");
+			//Instatiate our new object with info to update the database.
+			Offer offer1 = new Offer(8, "Steve", "steve@nowhereatall.com", "I'm a Junior at Java programming");
+			offersDao.update(offer1);
 			
 			//create a new row with the details passed in offer1
-			offersDao.create(offer1);
+			//Offer offer1 = new Offer("Artemas", "artemas@nowhereatall.com", "Coding in Java");
+			//offersDao.create(offer1);
 			
 			//offersDao.delete(5);
 			

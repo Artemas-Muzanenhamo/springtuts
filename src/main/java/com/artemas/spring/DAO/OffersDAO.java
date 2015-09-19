@@ -53,6 +53,21 @@ public class OffersDAO {
 	}
 	
 	/**
+	 * This Query will update a single row in the database given the id passed in.
+	 * 
+	 * @param offer - Object passed in of type Offer.
+	 * @return - an update query where the id is the value passed in the method.
+	 */
+	public boolean update(Offer offer){
+		
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);
+		
+		//only 1 row should be affected. If more that one or less than one... something is wrong somewhere.
+		return jdbc.update("update offers set name=:name, email=:email, text=:text where id=:id", params) ==1;
+		
+	}
+	
+	/**
 	 * This Query inserts data into the database given the Offer object
 	 * passed in which contains all the information i.e. name, email and text.
 	 * 

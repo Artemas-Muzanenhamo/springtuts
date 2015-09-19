@@ -19,6 +19,7 @@ public class Offer {
 		this.text = text;
 	}
 	
+	//constructor to take in the id, name, email and text since we will be updating a row, we need the id.
 	public Offer(int id, String name, String email, String text){
 		this.id = id;
 		this.name = name;
