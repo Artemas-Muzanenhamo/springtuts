@@ -33,11 +33,7 @@ public class OffersDAO {
 	 */
 	public List<Offer> getOffers(){
 		
-		//MapSqlParameterSource params = new MapSqlParameterSource("name","Sue");
-		MapSqlParameterSource params = new MapSqlParameterSource();
-		params.addValue("name","Sue");
-		
-		return jdbc.query("select * from offers where name = :name", params, new RowMapper<Offer>(){
+		return jdbc.query("select * from offers", new RowMapper<Offer>(){
 
 			public Offer mapRow(ResultSet rs, int rowNum) throws SQLException {
 				//instatiate a new Offer object.
@@ -53,6 +49,21 @@ public class OffersDAO {
 				return offer;
 			}
 		});
+	}
+	
+	/**
+	 * This query deletes an entry/row in the database depending on 
+	 * the id passed in the method.
+	 * 
+	 * @param id - id passed of type int.
+	 * @return - a true of false on the delete query with the passed id.
+	 */
+	public boolean delete(int id){
+		
+		MapSqlParameterSource params = new MapSqlParameterSource("id", id);
+		
+		return jdbc.update("delete from offers where id= :id", params) == 1;
+		
 	}
 	
 	/**

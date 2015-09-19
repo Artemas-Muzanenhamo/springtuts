@@ -20,6 +20,9 @@ public class App {
 		OffersDAO offersDao = (OffersDAO)context.getBean("offersDao");
 		
 		try {
+			
+			offersDao.delete(5);
+			
 			//get a list of type Offer
 			List<Offer> offers = offersDao.getOffers();
 			
@@ -29,9 +32,9 @@ public class App {
 			}
 			
 			//overrides the Offer object and it's assigned to a single offer of id = 2.
-			Offer offer = offersDao.getOffer(2);
+			//Offer offer = offersDao.getOffer(2);
 			
-			System.out.print("Should be Mike..." + offer);
+			//System.out.print("Should be Mike..." + offer);
 		}catch (CannotGetJdbcConnectionException ex){
 			//to handle errors when you can't connect to the db.
 			System.out.println("Cannot get database connection.");
