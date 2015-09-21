@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
+import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
 
 import com.artemas.spring.model.Offer;
@@ -75,12 +77,27 @@ public class OffersDAO {
 	 * @return - a jdbc query update which creates a new row in the database 
 	 * with the object information passed in the method.
 	 */
-	public boolean create(Offer offer){
+	public boolean create(Offer offers){
 		
-		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offer);
+		BeanPropertySqlParameterSource params = new BeanPropertySqlParameterSource(offers);
 		
 		//only 1 row should be affected. If more that one or less than one... something is wrong somewhere.
 		return jdbc.update("insert into offers(name, email, text) values (:name, :email, :text)", params) == 1;
+	}
+	
+	/**
+	 * 
+	 * @param offers
+	 * @return
+	 */
+	public int[] create (List<Offer> offers){
+		
+		//expects an array of params
+		SqlParameterSource[] params = SqlParameterSourceUtils.createBatch(offers.toArray());
+		
+		//Executes a batch using the supplied SQL statement with the batch of supplied arguments. Returns an array of integers.
+		return jdbc.batchUpdate("insert into offers(name, email, text) values (:name, :email, :text)", params);
+		
 	}
 	
 	/**

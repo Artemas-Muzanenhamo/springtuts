@@ -1,5 +1,6 @@
 package com.artemas.spring.test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -21,9 +22,19 @@ public class App {
 		
 		try {
 			
+			List<Offer> offers1 = new ArrayList<Offer>();
+			offers1.add(new Offer("Jimmy Butler", "Jimmy@nowhereatall.com", "Cash for Software "));
+			offers1.add(new Offer("Shane Butler", "Shane@nowhereatall.com", "Management is what I'm good at"));
+			
+			int[] rvals = offersDao.create(offers1);
+			
+			for(int value : rvals){
+				System.out.println("updated " + value);
+			}
+			
 			//Instatiate our new object with info to update the database.
-			Offer offer1 = new Offer(8, "Steve", "steve@nowhereatall.com", "I'm a Junior at Java programming");
-			offersDao.update(offer1);
+			//Offer offer1 = new Offer(8, "Steve", "steve@nowhereatall.com", "I'm a Junior at Java programming");
+			//offersDao.update(offer1);
 			
 			//create a new row with the details passed in offer1
 			//Offer offer1 = new Offer("Artemas", "artemas@nowhereatall.com", "Coding in Java");
