@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSourceUtils;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.artemas.spring.model.Offer;
 
@@ -86,10 +87,13 @@ public class OffersDAO {
 	}
 	
 	/**
+	 * This Query will run a batch update in the db. 
 	 * 
+	 * The transactional annotation means that the sql will either pass or fail.
 	 * @param offers
 	 * @return
 	 */
+	@Transactional
 	public int[] create (List<Offer> offers){
 		
 		//expects an array of params
